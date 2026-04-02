@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Слайдшоу</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #eee;
+      font-family: Arial;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    img {
+      width: 300px;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #333;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <img id="slide" src="https://picsum.photos/id/1011/300/500">
+  <br>
+  <button onclick="nextImage()">Далі →</button>
+</div>
+
+<script>
+  const images = [
+    "https://picsum.photos/id/1011/300/500",
+    "https://picsum.photos/id/1015/300/500",
+    "https://picsum.photos/id/1016/300/500"
+  ];
+
+  let current = 0;
+
+  function nextImage() {
+    current = (current + 1) % images.length;
+    document.getElementById("slide").src = images[current];
+  }
+</script>
+
+</body>
+</html>
